@@ -1,0 +1,29 @@
+@import url(reset.css);
+#start-view {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../images/start-pic.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; }
+  #start-view form {
+    width: 400px;
+    height: 350px;
+    border: 1px solid grey;
+    border-radius: 10%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.6); }
+    #start-view form h2 {
+      align-self: center;
+      font-weight: bold;
+      font-size: 1.7rem;
+      padding: 1.5rem; }
+    #start-view form input, #start-view form select {
+      padding: 5px;
+      margin: 5px;
+      background: rgba(255, 255, 255, 0.6); }
