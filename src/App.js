@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import StartForm from "./StartForm";
 import RollDice from './Dice'
+import Board from "./Board";
 
 class App extends Component {
     constructor(props) {
@@ -24,7 +25,8 @@ class App extends Component {
         return <div className="App">
             {!this.state.gameStart ?
                 <StartForm setPlayers={this.startGame}/> :
-                <div>
+                <div id='main-view'>
+                    <Board/>
                     <RollDice />
                 </div>
             }

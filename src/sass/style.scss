@@ -1,5 +1,6 @@
 @import "reset.css";
 
+
 #start-view{
     width: 100vw;
     height: 100vh;
@@ -33,5 +34,51 @@
             margin: 5px;
             background: rgba(255, 255, 255, 0.6);
         }
+    }
+}
+
+
+#main-view {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#board {
+
+    display: flex;
+    flex-direction: column;
+
+    div.row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        div {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .track {
+        border: 1px solid lightgray;
+    }
+
+    .redBase, .redHome, .redStart {
+        border: 1px solid lightgray;
+        background-color: rgba(255, 0, 0, 0.5);
+    }
+    .blueBase, .blueHome, .blueStart {
+        border: 1px solid lightgray;
+        background-color: rgba( 0, 0, 255, 0.5);
+    }
+    .greenBase, .greenHome, .greenStart {
+        border: 1px solid lightgray;
+        background-color: rgba(0, 255, 0, 0.5);
+    }
+    .yellowBase, .yellowHome, .yellowStart {
+        border: 1px solid lightgray;
+        background-color: rgba(255, 255, 0, 0.5);
     }
 }
