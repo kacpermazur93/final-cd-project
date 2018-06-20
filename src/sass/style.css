@@ -34,6 +34,14 @@
   flex-direction: row;
   justify-content: space-around; }
 
+#panel {
+  height: 500px;
+  width: 180px; }
+  #panel #dice-roller > button {
+    padding: 10px;
+    margin: 10px 0;
+    width: 128px; }
+
 #board {
   display: flex;
   flex-direction: column; }

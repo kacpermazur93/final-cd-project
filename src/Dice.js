@@ -36,7 +36,7 @@ class RollDice extends Component {
 
 
     render() {
-        return <div>
+        return <div id='dice-roller'>
             <div style={{
                 width: '128px',
                 height: '128px',

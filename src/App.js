@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import StartForm from "./StartForm";
-import RollDice from './Dice'
 import Board from "./Board";
+import Panel from "./Panel"
 
 class App extends Component {
     constructor(props) {
@@ -10,6 +10,7 @@ class App extends Component {
         this.state = {
             players: [],
             gameStart: false,
+            currPlayerIndex: 0
         }
     }
 
@@ -27,7 +28,7 @@ class App extends Component {
                 <StartForm setPlayers={this.startGame}/> :
                 <div id='main-view'>
                     <Board/>
-                    <RollDice />
+                    <Panel currPlayer={this.state.players[this.state.currPlayerIndex]}/>
                 </div>
             }
         </div>

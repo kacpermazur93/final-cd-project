@@ -45,6 +45,17 @@
     justify-content: space-around;
 }
 
+#panel {
+    height: 500px;
+    width: 180px;
+
+    #dice-roller > button {
+        padding: 10px;
+        margin: 10px 0;
+        width: 128px;
+    }
+}
+
 #board {
 
     display: flex;
