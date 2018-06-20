@@ -10,7 +10,9 @@ class App extends Component {
         this.state = {
             players: [],
             gameStart: false,
-            currPlayerIndex: 0
+            currPlayerIndex: 0,
+            diceRolled: false,
+            pawnMoved: false
         }
     }
 
