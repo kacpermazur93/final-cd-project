@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import StartForm from "./StartForm";
-
+import RollDice from './Dice'
 
 class App extends Component {
     constructor(props) {
@@ -8,7 +8,7 @@ class App extends Component {
 
         this.state = {
             players: [],
-            gameStart: false
+            gameStart: false,
         }
     }
 
@@ -24,7 +24,9 @@ class App extends Component {
         return <div className="App">
             {!this.state.gameStart ?
                 <StartForm setPlayers={this.startGame}/> :
-                ''
+                <div>
+                    <RollDice />
+                </div>
             }
         </div>
     }
