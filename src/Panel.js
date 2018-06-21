@@ -11,7 +11,8 @@ class Panel extends Component {
 
     render() {
         return <div id='panel'>
-            <RollDice/>
+            <RollDice diceRolled={this.props.diceRolled}
+                      getResult={(a)=>{this.props.getResult(a)}}/>
             <h3>Active Player</h3>
             <p>{this.props.currPlayer}</p>
         </div>

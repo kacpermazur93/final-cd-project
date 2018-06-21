@@ -6,14 +6,13 @@ class RollDice extends Component {
         super(props);
 
         this.state = {
-            x: 6,
+            x: 5,
         }
     }
 
 
-
     diceRolling = (event) => {
-        event.target.disabled = true;
+        //event.target.disabled = true;
 
         this.setState({
             counter: 0
@@ -27,10 +26,13 @@ class RollDice extends Component {
             });
 
             if (this.state.counter === 12) {
+                this.props.getResult(this.state.x+1);
                 clearInterval(this.intervalId);
             }
 
-        }, 60)
+        }, 60);
+
+
 
     };
 
@@ -40,9 +42,10 @@ class RollDice extends Component {
             <div style={{
                 width: '128px',
                 height: '128px',
-                background: `url(${dice}) ${(128*this.state.x)}px`
+                background: `url(${dice}) ${(-128*this.state.x)}px`
             }}> </div>
-            <button onClick={(e)=>{this.diceRolling(e)}}>ROLL</button>
+            <button disabled={this.props.diceRolled}
+                    onClick={(e)=>{this.diceRolling(e)}}>ROLL</button>
         </div>
     }
 }

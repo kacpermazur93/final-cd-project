@@ -12,7 +12,8 @@ class App extends Component {
             gameStart: false,
             currPlayerIndex: 0,
             diceRolled: false,
-            pawnMoved: false
+            pawnMoved: false,
+            diceResult: undefined
         }
     }
 
@@ -23,6 +24,12 @@ class App extends Component {
         });
     }
 
+    getResult = (diceValue) => {
+        this.setState({
+            diceResult: diceValue,
+            diceRolled: true
+        })
+    }
 
     render() {
         return <div className="App">
@@ -30,7 +37,9 @@ class App extends Component {
                 <StartForm setPlayers={this.startGame}/> :
                 <div id='main-view'>
                     <Board/>
-                    <Panel currPlayer={this.state.players[this.state.currPlayerIndex]}/>
+                    <Panel currPlayer={this.state.players[this.state.currPlayerIndex]}
+                           diceRolled={this.state.diceRolled}
+                           getResult={(a)=>{this.getResult(a)}}/>
                 </div>
             }
         </div>
