@@ -13,8 +13,8 @@ class Board extends Component {
     render() {
         return <div id='board'>
             <div className="row">
-                <div className='redBase'><Pawn color='red' move={(e) => (this.props.movePawn(e))}/></div>
-                <div className='redBase'><Pawn color='red' move={(e) => (this.props.movePawn(e))} /></div>
+                <div className='redBase'><Pawn color='red' playersColors={this.props.playersColors} move={(e) => (this.props.movePawn(e))}/></div>
+                <div className='redBase'><Pawn color='red' playersColors={this.props.playersColors} move={(e) => (this.props.movePawn(e))} /></div>
                 <div></div>
                 <div></div>
                 <div data-field='39' className='track'></div>
@@ -22,12 +22,12 @@ class Board extends Component {
                 <div data-field='1' className='track blueStart'></div>
                 <div></div>
                 <div></div>
-                <div className='blueBase'><Pawn color='blue'  move={(e) => (this.props.movePawn(e))}/></div>
-                <div className='blueBase'><Pawn color='blue'  move={(e) => (this.props.movePawn(e))}/></div>
+                <div className='blueBase'><Pawn color='blue'  playersColors={this.props.playersColors} move={(e) => (this.props.movePawn(e))}/></div>
+                <div className='blueBase'><Pawn color='blue'  playersColors={this.props.playersColors} move={(e) => (this.props.movePawn(e))}/></div>
             </div>
             <div className="row">
-                <div className='redBase'><Pawn color='red'  move={(e) => (this.props.movePawn(e))}/></div>
-                <div className='redBase'><Pawn color='red'  move={(e) => (this.props.movePawn(e))}/></div>
+                <div className='redBase'><Pawn color='red'  playersColors={this.props.playersColors} move={(e) => (this.props.movePawn(e))}/></div>
+                <div className='redBase'><Pawn color='red'  playersColors={this.props.playersColors} move={(e) => (this.props.movePawn(e))}/></div>
                 <div></div>
                 <div></div>
                 <div data-field='38' className='track'></div>
@@ -35,8 +35,8 @@ class Board extends Component {
                 <div data-field='2' className='track'></div>
                 <div></div>
                 <div></div>
-                <div className='blueBase'><Pawn color='blue' move={(e) => (this.props.movePawn(e))} /></div>
-                <div className='blueBase'><Pawn color='blue' move={(e) => (this.props.movePawn(e))} /></div>
+                <div className='blueBase'><Pawn color='blue' playersColors={this.props.playersColors} move={(e) => (this.props.movePawn(e))} /></div>
+                <div className='blueBase'><Pawn color='blue' playersColors={this.props.playersColors} move={(e) => (this.props.movePawn(e))} /></div>
             </div>
             <div className="row">
                 <div></div>
@@ -130,8 +130,8 @@ class Board extends Component {
                 <div></div>
             </div>
             <div className="row">
-                <div  className='yellowBase'><Pawn color='yellow' move={(e) => (this.props.movePawn(e))} /></div>
-                <div  className='yellowBase'><Pawn color='yellow' move={(e) => (this.props.movePawn(e))} /></div>
+                <div  className='yellowBase'><Pawn color='yellow' playersColors={this.props.playersColors} move={(e) => (this.props.movePawn(e))} /></div>
+                <div  className='yellowBase'><Pawn color='yellow' playersColors={this.props.playersColors} move={(e) => (this.props.movePawn(e))} /></div>
                 <div></div>
                 <div></div>
                 <div data-field='22' className='track'></div>
@@ -139,12 +139,12 @@ class Board extends Component {
                 <div data-field='18' className='track'></div>
                 <div></div>
                 <div></div>
-                <div  className='greenBase'><Pawn color='green' move={(e) => (this.props.movePawn(e))} /></div>
-                <div  className='greenBase'><Pawn color='green' move={(e) => (this.props.movePawn(e))} /></div>
+                <div  className='greenBase'><Pawn color='green' playersColors={this.props.playersColors} move={(e) => (this.props.movePawn(e))} /></div>
+                <div  className='greenBase'><Pawn color='green' playersColors={this.props.playersColors} move={(e) => (this.props.movePawn(e))} /></div>
             </div>
             <div className="row">
-                <div  className='yellowBase'><Pawn color='yellow' move={(e) => (this.props.movePawn(e))} /></div>
-                <div  className='yellowBase'><Pawn color='yellow' move={(e) => (this.props.movePawn(e))} /></div>
+                <div  className='yellowBase'><Pawn color='yellow' playersColors={this.props.playersColors} move={(e) => (this.props.movePawn(e))} /></div>
+                <div  className='yellowBase'><Pawn color='yellow' playersColors={this.props.playersColors} move={(e) => (this.props.movePawn(e))} /></div>
                 <div></div>
                 <div></div>
                 <div data-field='21' className='track yellowStart'></div>
@@ -152,8 +152,8 @@ class Board extends Component {
                 <div data-field='19' className='track'></div>
                 <div></div>
                 <div></div>
-                <div  className='greenBase'><Pawn color='green' move={(e) => (this.props.movePawn(e))} /></div>
-                <div  className='greenBase'><Pawn color='green' move={(e) => (this.props.movePawn(e))} /></div>
+                <div  className='greenBase'><Pawn color='green' playersColors={this.props.playersColors} move={(e) => (this.props.movePawn(e))} /></div>
+                <div  className='greenBase'><Pawn color='green' playersColors={this.props.playersColors} move={(e) => (this.props.movePawn(e))} /></div>
             </div>
 
         </div>

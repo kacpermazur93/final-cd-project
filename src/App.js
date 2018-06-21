@@ -40,6 +40,15 @@ class App extends Component {
         });
     }
 
+
+    getResult = (diceValue) => {
+        this.setState({
+            diceResult: diceValue,
+            diceRolled: true
+        })
+    }
+
+
     turnEnd(nextPlayerIndex) {
         this.setState({
             diceRolled: false,
@@ -49,14 +58,6 @@ class App extends Component {
             diceResult: undefined,
             currPlayerIndex: nextPlayerIndex
         });
-    }
-
-
-    getResult = (diceValue) => {
-        this.setState({
-            diceResult: diceValue,
-            diceRolled: true
-        })
     }
 
 
@@ -142,7 +143,8 @@ class App extends Component {
             {!this.state.gameStart ?
                 <StartForm setPlayers={this.startGame}/> :
                 <div id='main-view'>
-                    <Board diceResult={this.state.diceResult} movePawn={(e) => (this.movePawn(e))}/>
+                    <Board playersColors={this.state.playersColors}
+                           diceResult={this.state.diceResult} movePawn={(e) => (this.movePawn(e))}/>
                     <Panel currPlayer={this.state.players[this.state.currPlayerIndex]}
                            diceRolled={this.state.diceRolled}
                            playerColor={this.state.playersColors[this.state.currPlayerIndex]}

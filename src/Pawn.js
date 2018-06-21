@@ -4,14 +4,16 @@ class Pawn extends React.Component {
 
 
     render() {
-        return <div style={{backgroundColor: this.props.color, opacity: 0.8}}
-                    className={`pawn pawn-${this.props.color}`}
-                    onClick={(e) => (this.props.move(e))}>
+        if (this.props.playersColors.indexOf(this.props.color) >= 0) {
+            return <div style={{backgroundColor: this.props.color, opacity: 0.8}}
+                        className={`pawn pawn-${this.props.color}`}
+                        onClick={(e) => (this.props.move(e))}>
 
-        </div>
+            </div>
+        } else
+            return null
     }
 }
-
 
 
 export default Pawn;
