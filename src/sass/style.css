@@ -37,7 +37,6 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  flex-grow: revert;
   justify-content: space-around; }
 
 #panel {
@@ -60,10 +59,9 @@
       margin: 5px; }
 
 #board {
-  height: 550px;
   display: flex;
   flex-direction: column;
-  padding: 40px;
+  padding: 20px;
   border-radius: 10%;
   background-color: rgba(255, 255, 255, 0.9); }
   #board div.row {
