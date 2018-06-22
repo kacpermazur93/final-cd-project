@@ -13,8 +13,11 @@ class Panel extends Component {
         return <div id='panel'>
             <RollDice diceRolled={this.props.diceRolled}
                       getResult={(a)=>{this.props.getResult(a)}}/>
-            <h3>Active Player</h3>
-            <p style={{color: this.props.playerColor}}>{this.props.currPlayer}</p>
+            <div id='messageBox'>
+                <h3>Active Player</h3>
+                <p style={{color: this.props.playerColor}}>{this.props.currPlayer}</p>
+            </div>
+
         </div>
     }
 }

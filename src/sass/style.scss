@@ -1,5 +1,11 @@
 @import "reset.css";
 
+.App {
+    background-image: url(../images/start-pic.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 
 #start-view{
     width: 100vw;
@@ -7,10 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../images/start-pic.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+
 
     form {
         width: 400px;
@@ -39,28 +42,52 @@
 
 
 #main-view {
+    width: 100vw;
+    height: 100vh;
     padding: 20px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
+    flex-grow: revert;
     justify-content: space-around;
+
 }
 
 #panel {
     height: 500px;
     width: 180px;
+    padding: 40px;
+    border-radius: 25px;
+    background-color: rgba(255,255,255,0.9);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
 
     #dice-roller > button {
         padding: 10px;
         margin: 10px 0;
         width: 128px;
     }
+
+    #messageBox {
+        padding-top: 30px;
+
+        p {
+            margin: 5px;
+        }
+    }
 }
 
 
 #board {
-
+    height: 550px;
     display: flex;
     flex-direction: column;
+    padding: 40px;
+    border-radius: 10%;
+    background-color: rgba(255,255,255,0.9);
 
     div.row {
         display: flex;
