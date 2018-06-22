@@ -61,6 +61,24 @@ class App extends Component {
     }
 
 
+    checkPawnCollision( self,  newPositionField ) {
+        if (newPositionField.hasChildNodes()) {
+            const opponentPawnColor = newPositionField.children[0].style.backgroundColor;
+            if ( opponentPawnColor === self.style.backgroundColor) {
+                console.log('niedozwolony ruch, wybierz inny pionek');
+                return true;
+            } else {
+                const opponentBase = document.querySelectorAll(`.${opponentPawnColor}Base`);
+                for (let i = 0; i < 4; i++) {
+                    if (!opponentBase[i].hasChildNodes()) {
+                        opponentBase[i].appendChild(newPositionField.children[0]);
+                        return false;
+                    }
+                }
+            }
+        }
+    }
+
     movePawn = (event) => {
         const self = event.target;
         const nextPlayerIndex = ((this.state.currPlayerIndex + 2 > this.state.players.length) ? 0 : this.state.currPlayerIndex + 1);
@@ -80,8 +98,7 @@ class App extends Component {
                     diceRolled: false,
                     allInBaseRollingCounter: this.state.allInBaseRollingCounter + 1
                 });
-                console.log(this.state.allInBaseRollingCounter);
-                console.log(this.state.currPlayerIndex);
+                console.log(this.state.allInBaseRollingCounter + 1);
                 return false
             } else {
                 //reset state
@@ -98,20 +115,37 @@ class App extends Component {
         }
 
 
-
-
         //click pawn in base
         if (self.parentElement.className.includes('Base')) {
 
             //moving pawn from base to truck
             if (this.state.diceResult === 6) {
-                let startField = playerColor + 'Start';
-                document.querySelector(`.${startField}`).appendChild(self);
+                const startField = playerColor + 'Start';
+                const startFieldElement = document.querySelector(`.${startField}`);
+
+                //colision
+                if( this.checkPawnCollision(self, startFieldElement) )
+                    return false;
+
+                startFieldElement.appendChild(self);
                 this.setState({
                     diceRolled: false,
                     diceResult: undefined,
                 });
+
+
+                if (this.state.counter6result < 2) {
+
+                    this.setState({
+                        counter6result: this.state.counter6result + 1
+                    });
+
+                } else {
+                    this.turnEnd(nextPlayerIndex);
+                }
+
                 return true
+
             } else {
 
                 // click on pawn in base without 6
@@ -123,13 +157,50 @@ class App extends Component {
 
         //moving on truck
         if (typeof(self.parentElement.dataset.field) !== 'undefined') {
+
             let newPosition = Number(self.parentElement.dataset.field) + this.state.diceResult;
+
             if (newPosition > 40)
                 newPosition -= 40;
-            document.querySelector(`[data-field='${newPosition}']`).appendChild(self);
-            //reset state
-            this.turnEnd(nextPlayerIndex);
-            return true
+
+            const newPositionField = document.querySelector(`[data-field='${newPosition}']`);
+
+            //colision
+            if( this.checkPawnCollision(self, newPositionField) )
+                return false;
+
+            // if (newPositionField.hasChildNodes()) {
+            //     const opponentPawnColor = newPositionField.children[0].style.backgroundColor;
+            //     if ( opponentPawnColor === self.style.backgroundColor) {
+            //         console.log('niedozwolony ruch, wybierz inny pionek');
+            //         return false
+            //     } else {
+            //         const opponentBase = document.querySelectorAll(`.${opponentPawnColor}Base`);
+            //         for (let i = 0; i < 4; i++) {
+            //             if (!opponentBase[i].hasChildNodes()) {
+            //                 opponentBase[i].appendChild(newPositionField.children[0]);
+            //                 break;
+            //             }
+            //         }
+            //     }
+            // }
+
+            newPositionField.appendChild(self);
+
+            if (this.state.diceResult === 6 && this.state.counter6result < 2) {
+
+                this.setState({
+                    diceRolled: false,
+                    counter6result: this.state.counter6result + 1
+                });
+                return false;
+
+            } else {
+                console.log('alalalaalala');
+                this.turnEnd(nextPlayerIndex);
+                return true
+            }
+
         }
 
 
